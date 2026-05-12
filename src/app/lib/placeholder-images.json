@@ -1,0 +1,17 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "gold-background",
+      "description": "Abstract golden textures representing wealth",
+      "imageUrl": "https://picsum.photos/seed/gold/1200/800",
+      "imageHint": "gold wealth"
+    },
+    {
+      "id": "finance-dashboard",
+      "description": "Tech-focused financial interface",
+      "imageUrl": "https://picsum.photos/seed/finance/1200/800",
+      "imageHint": "finance technology"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 0 0% 100%;
+    --card: 222 47% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222 47% 4%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 245 80% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 47% 8%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 47% 8%;
+    --muted-foreground: 222 10% 70%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 47% 12%;
+    --input: 222 47% 12%;
+    --ring: 245 80% 65%;
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply text-foreground overflow-hidden h-[100dvh] fixed w-full font-body m-0 p-0;
+    background: linear-gradient(145deg, #1e3a8a 0%, #0d152b 45%, #020617 100%);
+    background-attachment: fixed;
+  }
+}
+
+.iphone-frame {
+  @apply flex flex-col h-[100dvh] w-full bg-transparent relative overflow-hidden;
+}
+
+.content-scroll {
+  @apply flex-1 overflow-y-auto px-5 space-y-7;
+  padding-top: calc(1rem + env(safe-area-inset-top));
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.content-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.bottom-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-[#020617]/90 backdrop-blur-3xl border-t border-white/10 flex items-center justify-around px-6 z-50;
+  height: calc(5.5rem + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.nav-item {
+  @apply flex flex-col items-center justify-center gap-1 text-white/30 transition-all active:scale-90;
+}
+
+.nav-item.active {
+  @apply text-primary scale-110 opacity-100;
+}
+
+.main-balance-card {
+  @apply bg-[#5e5ce6] rounded-[2.8rem] p-8 shadow-2xl shadow-[#5e5ce6]/40 relative overflow-hidden;
+}
+
+.status-row-card {
+  @apply bg-white/5 backdrop-blur-xl rounded-[2.2rem] p-6 flex items-center justify-between border border-white/10 active:bg-white/10 transition-colors;
+}
+
+.avatar-ring {
+  @apply w-12 h-12 rounded-full border-2 border-[#5e5ce6] p-0.5 shadow-lg;
+}
+
+.progress-line {
+  @apply h-2 w-full bg-white/10 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-[#5e5ce6] rounded-full transition-all duration-1000 ease-out;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl;
+}
+
+.glass-indigo {
+  @apply bg-indigo-500/15 backdrop-blur-2xl border border-indigo-400/20;
+}
+
+.glass-azure {
+  @apply bg-sky-500/15 backdrop-blur-2xl border border-sky-400/20;
+}
+
+/* Light & Smooth Animations */
+.view-enter {
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+h1, h2, h3 {
+  @apply font-headline;
+}
+
+[data-radix-portal] > div {
+  @apply z-[100];
+}
